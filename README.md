@@ -12,3 +12,6 @@ Two Frontend solutions are provided:
 ## Docker compose all in one run
 
 `docker-compose up --build`
+
+- [First FE](http://localhost:5173)
+- [Second FE](http://localhost:5174)
