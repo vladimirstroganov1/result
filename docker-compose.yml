@@ -1,0 +1,42 @@
+services:
+  fe.solution.one:
+    container_name: fe.solution.one
+    build:
+      context: ./fe.solution.one
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./fe.solution.one:/app
+      - /app/node_modules
+    networks:
+      - result-network
+
+  fe.solution.two:
+    container_name: fe.solution.two
+    build:
+      context: ./fe.solution.two
+      dockerfile: Dockerfile
+    ports:
+      - "5174:5173"
+    volumes:
+      - ./fe.solution.two:/app
+      - /app/node_modules
+    networks:
+      - result-network
+
+  backend:
+    container_name: backend
+    build:
+      context: ./be
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+    volumes:
+      - ./be:/app
+      - /app/node_modules
+    networks:
+      - result-network
+networks:
+  result-network:
+    driver: bridge
